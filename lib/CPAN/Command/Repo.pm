@@ -48,7 +48,7 @@ sub do_checkout {
         !system "git", "clone", $repo, $package
             or $CPAN::Frontend->mydie("Can't git clone $repo");
         $chdir_to = $package;
-    } elsif ($repo->scheme eq 'ssh' or $repo->path =~ /trunk|branches/) { # FIXME
+    } elsif ($repo->scheme eq 'svn' or $repo->path =~ /trunk|branches/) { # FIXME
         !system "svn", "checkout", $repo, $package
             or $CPAN::Frontend->mydir("Can't svn checkout $repo");
         $chdir_to = $package;
